@@ -18,7 +18,7 @@ class Options:
         parser.add_argument('-v', '--verbose', help='increase message verbosity level', action='store_true')
         parser.add_argument('-V', '--version', help='show version and exit', action='version', version=self._version_message)
 
-        subparsers = parser.add_subparsers(help='machine info operations')
+        subparsers = parser.add_subparsers(help='machine info operations', dest='subcommand')
 
         parser_show = subparsers.add_parser('show', help='show this machine information')
         parser_show.add_argument('--raw', help='supress dynamic variable substitution', action='store_true')
