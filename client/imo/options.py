@@ -62,6 +62,10 @@ class Options:
         return self._args.version
 
     @property
+    def subcommand(self):
+        return self._args.subcommand
+
+    @property
     def dump(self):
         return self._args
 
