@@ -1,5 +1,7 @@
 """ littlesister machineinfo file operations """
 
+import yaml
+
 class MachineInfo:
     """ machineinfo file operations class """
     _machineinfo = None
@@ -10,7 +12,7 @@ class MachineInfo:
 
         # !!! TODO: Check the config against schema
 
-    def register(self):
+    def register(self, server_address):
         """ Registers the machine on the server.
             The UUID obtained from the server is written to 
             the machineinfo file.
@@ -19,12 +21,12 @@ class MachineInfo:
         """
         pass
 
-    def update(self):
+    def update(self, server_address):
         """ Sends current version of the machineinfo file
             to the server """
         pass
 
-    def delete(self):
+    def delete(self, server_address):
         """ Tells server to forget this machine """
         pass
 
@@ -34,6 +36,10 @@ class MachineInfo:
             We are going to implement this first to
             make the software useful without a server. """
 
-        yaml.dump(self._machineinfo, default_flow_style=False)
+        return yaml.dump(self._machineinfo, default_flow_style=False)
+        # PyYAML dumper output looks, uhm, not human friendly at all.
+        # Not nice at the very least.
+        # This should be replaced with a simple recursive formatter
+        # that is capable of doing proper indentation and stuff
 
         
